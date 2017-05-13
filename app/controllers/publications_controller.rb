@@ -12,6 +12,11 @@ class PublicationsController < ApplicationController
       { title: params[:data][:attributes][:job_offer][:title],
         description: params[:data][:attributes][:job_offer][:description]
       })
-    @publication.save
+
+    if @publication.save
+      head :created
+    else
+      head :no_content
+    end
   end
 end
