@@ -10,7 +10,8 @@ class PublicationsController < ApplicationController
     # binding.pry
     @publication = Publication.create(
       { title: params[:data][:attributes][:job_offer][:title],
-        description: params[:data][:attributes][:job_offer][:description]
+        description: params[:data][:attributes][:job_offer][:description],
+        customer: params[:data][:attributes][:job_offer][:customer][:name]
       })
 
     if @publication.save
