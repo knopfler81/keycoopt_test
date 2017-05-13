@@ -1,7 +1,26 @@
-<h1>Publications</h1>
+<div class="container">
+  <div class="row">
+    <h1>Publications</h1>
 
-<% @publications.each do |publication| %>
-  <%= publication.title %>
-  <%= publication.description %>
-  <%= publication.customer %>
-<% end %>
+<table class="table table-striped">
+
+<tr>
+  <th>Client</th>
+  <th>Annonce</th>
+  <th>Date de publication</th>
+  <th>Facture</th>
+</tr>
+
+  <% @publications.each do |publication| %>
+<tr>
+    <td><%= publication.customer %></td>
+    <td><%= publication.title %></td>
+    <td><%= publication.created_at.strftime("%d/%m/%Y")%></td>
+  <td>Facture</td>
+</tr>
+  <% end %>
+
+</table>
+
+  </div>
+</div>

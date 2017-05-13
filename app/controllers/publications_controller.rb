@@ -1,6 +1,8 @@
 class PublicationsController < ApplicationController
   protect_from_forgery with: :null_session, only: :create
 
+  http_basic_authenticate_with name: "admin", password: "superstrongpassword", only: :index
+
 
   def index
     @publications = Publication.all
