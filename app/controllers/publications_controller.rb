@@ -10,8 +10,14 @@ class PublicationsController < ApplicationController
     # binding.pry
     @publication = Publication.create(
       { title: params[:data][:attributes][:job_offer][:title],
-        description: params[:data][:attributes][:job_offer][:description]
+        description: params[:data][:attributes][:job_offer][:description],
+        customer: params[:data][:attributes][:job_offer][:customer][:name]
       })
-    @publication.save
+
+    if @publication.save
+      head :created
+    else
+      head :no_content
+    end
   end
 end

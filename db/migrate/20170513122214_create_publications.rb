@@ -3,6 +3,7 @@ class CreatePublications < ActiveRecord::Migration[5.0]
     create_table :publications do |t|
       t.text :title
       t.text :description
+      t.text :customer
 
       t.timestamps
     end

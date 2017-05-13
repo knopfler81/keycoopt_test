@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170513122214) do
   create_table "publications", force: :cascade do |t|
     t.text     "title"
     t.text     "description"
+    t.text     "customer"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

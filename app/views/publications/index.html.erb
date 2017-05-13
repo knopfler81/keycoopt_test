@@ -1,5 +1,7 @@
-<!-- <h1>Publications</h1> -->
+<h1>Publications</h1>
 
-<%# @publications.each do |publication| %>
-  <%#= publication.title %>
-<%# end %>
+<% @publications.each do |publication| %>
+  <%= publication.title %>
+  <%= publication.description %>
+  <%= publication.customer %>
+<% end %>
