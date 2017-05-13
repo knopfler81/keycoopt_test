@@ -1,6 +1,11 @@
 class PublicationsController < ApplicationController
   protect_from_forgery with: :null_session, only: :create
 
+
+  def index
+    @publications = Publication.all
+  end
+
   def create
     # binding.pry
     @publication = Publication.create(

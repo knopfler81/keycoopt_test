@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170513122214) do
   enable_extension "plpgsql"
 
   create_table "publications", force: :cascade do |t|
-    t.string   "title"
+    t.text     "title"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
