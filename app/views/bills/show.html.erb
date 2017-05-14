@@ -1,7 +1,14 @@
 <div class="container">
   <div class="row">
-    <h2>Facture ref:  <%= @bill.reference %></h2>
-    <h2>Montant: <%= @bill.amount%> €</h2>
+    <p>Facture ref:  <%= @bill.reference %></p>
+    <p>Date de publication : <%= @bill.publication.created_at.strftime("%d/%m/%Y") %></p>
+    <p>Date de la facture  : <%= @bill.created_at.strftime("%d/%m/%Y") %></p>
+    <p>Nom du client: <%= @bill.publication.customer %></p>
+    <p>Titre de l'annonce: <%= @bill.publication.title %></p>
+    <p>Date de publication de l'annonce: <%= @bill.publication.created_at.strftime("%d/%m/%Y") %>
+</p>
+    <p>Date de facturation<%= @bill.created_at.strftime("%d/%m/%Y") %></p>
+    <p>Montant: <%= @bill.amount%> €</p>
 
     <%= link_to "Télécharger le pdf", bill_path(@bill, format: "pdf")  %>
   </div>

@@ -14,11 +14,11 @@ class BillPdf < Prawn::Document
 
   def total_amount
     text "\n
-          Client #{@bill.publication.customer}\n
-          Annonce: #{@bill.publication.title}\n
-          Montant TTC de la Facure: #{@bill.amount} € \n"
-
-
+          Nom du client: #{@bill.publication.customer}\n
+          Titre de l'annonce: #{@bill.publication.title}\n
+          Date de publication de l'annonce: #{@bill.publication.created_at.strftime("%d/%m/%Y")}\n
+          Date de facturation: #{@bill.created_at.strftime("%d/%m/%Y")}\n
+          Montant: #{@bill.amount} € \n"
   end
 
 end
