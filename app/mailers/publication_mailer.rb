@@ -7,7 +7,7 @@ class PublicationMailer < ApplicationMailer
   #
   def alert(publication)
     @publication = publication
-    mail  to: "accounting@keycoopt.com",
+    mail  to: "facturation@keycoopt.com",
           subject: "Nouvelle publication"
   end
 
