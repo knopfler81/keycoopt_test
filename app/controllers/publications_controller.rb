@@ -3,13 +3,15 @@ class PublicationsController < ApplicationController
 
   http_basic_authenticate_with name: "admin", password: "superstrongpassword", only: :index
 
+  def show
+    @publication = Publication.find(params[:id])
+  end
 
   def index
     @publications = Publication.all
   end
 
   def create
-    # binding.pry
     @publication = Publication.create(
       { title: params[:data][:attributes][:job_offer][:title],
         description: params[:data][:attributes][:job_offer][:description],

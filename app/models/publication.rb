@@ -1,5 +1,6 @@
 class Publication < ApplicationRecord
   after_create :send_alert_email
+  has_one :bill
 
   private
 
