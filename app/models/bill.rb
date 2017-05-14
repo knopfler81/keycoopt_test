@@ -1,22 +1,28 @@
 class Bill < ApplicationRecord
   belongs_to :publication
 
+  before_save :reference_generator
+
+
 
   require "i18n"
   require 'securerandom'
 
   def reference_generator
 
-    #ref keep only four letters and upcase
-    ref_1 = self.publication.customer.first(4).upcase
+    self.reference = ""
 
-    #remove space and accents
-    ref_2 = ref_1.gsub(' ', '')
-    ref_3 =  I18n.transliterate(ref_2)
-
-    #add 4 or more digit
+    ref   = self.publication.customer
+    ref_1 = I18n.transliterate(ref)
+    ref_2 = ref_1.gsub(/\W/, '')
+    ref_3 = ref_2.first(4).upcase
     unique_id = SecureRandom.random_number(9999)
-    final_ref = ref_3 + unique_id.to_s
+
+    self.reference = ref_3 + unique_id.to_s
 
   end
 end
+
+
+#cette methode viendra dans la vue genre bill.reference_generator
+#la ref se créer peut etre après la génération...

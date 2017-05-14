@@ -16,7 +16,11 @@
     <td><%= publication.customer %></td>
     <td><%= publication.title %></td>
     <td><%= publication.created_at.strftime("%d/%m/%Y")%></td>
-  <td>Facture</td>
+    <% if publication.bill.present?%>
+      <td><%= link_to "Yo", "#"  %></td>
+    <% else %>
+      <td><%= link_to "Générer", "#"  %></td>
+    <% end %>
 </tr>
   <% end %>
 
