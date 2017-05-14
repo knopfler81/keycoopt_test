@@ -3,6 +3,6 @@
     <h2>Facture ref:  <%= @bill.reference %></h2>
     <h2>Montant: <%= @bill.amount%> €</h2>
 
-    <%= link_to "Télécharger le pdf", "#"  %>
+    <%= link_to "Télécharger le pdf", bill_path(@bill, format: "pdf")  %>
   </div>
 </div>
