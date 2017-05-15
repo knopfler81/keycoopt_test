@@ -7,6 +7,7 @@ class PublicationsController < ApplicationController
 
   def index
     @publications = Publication.all
+    @publications = Publication.order('created_at DESC')
     @publications = @publications.page params[:page]
   end
 
