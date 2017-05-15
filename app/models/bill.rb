@@ -7,20 +7,36 @@ class Bill < ApplicationRecord
   require "i18n"
   require 'securerandom'
 
+  validates :reference, uniqueness: true
+
   def reference_generator
-    self.reference = ""
-
-    ref   = self.publication.customer
-    ref_1 = I18n.transliterate(ref)
-    ref_2 = ref_1.gsub(/\W/, '')
-    ref_3 = ref_2.first(4).upcase
-    unique_id = SecureRandom.random_number(9999)
-
-    self.reference = "#" + ref_3 + unique_id.to_s
+    unless self.reference.present?
+      self.reference = "#" + customer_ref + generate_reference_number
+    else
+      uniqueness_of_reference
+    end
   end
 
+  def customer_ref
+    ref_1 = I18n.transliterate(self.publication.customer).gsub(/\W/, '')
+    # I18n.transliterate removes all accents but keeps letters à => a
+    ref_1.first(4).upcase
+  end
+
+  def generate_reference_number
+    rand.to_s[4..7]
+    #that generate a random number with 4 to 7 digits
+  end
+
+  def uniqueness_of_reference
+    if self.reference == reference_generator
+      generate_reference_number
+    end
+  end
+
+
   def add_price
-    self.amount = 1234.56
+    self.amount = 154.35
   end
 
 end
