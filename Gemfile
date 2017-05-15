@@ -16,7 +16,11 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
+#PDF
 gem "prawn"
+
+#Pagination
+gem 'kaminari'
 
 group :development, :test do
   gem 'binding_of_caller'

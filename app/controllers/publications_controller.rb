@@ -7,6 +7,7 @@ class PublicationsController < ApplicationController
 
   def index
     @publications = Publication.all
+    @publications = @publications.page params[:page]
   end
 
   def create
