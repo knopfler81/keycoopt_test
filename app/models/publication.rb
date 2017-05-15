@@ -1,13 +1,13 @@
 class Publication < ApplicationRecord
-  after_create :send_alert_email
+  after_create :alert
   has_one :bill
 
   validates :customer, uniqueness: {scope: :title}
 
-  private
+ private
 
-  def send_alert_email
-    PublicationMailer.alert(self).deliver_now
+  def alert
+    SendEmailToServiceJob.perform_later(id)
   end
 
 end
