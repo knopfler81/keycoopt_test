@@ -6,7 +6,7 @@ class Publication < ApplicationRecord
 
   validates :customer, uniqueness: {scope: :title}
 
-  paginates_per 10
+  paginates_per 5
 
  private
 

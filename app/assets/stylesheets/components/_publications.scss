@@ -1,0 +1,82 @@
+.publications-title{
+  color: $orange;
+}
+.publication {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.25s ease;
+  background-color: #e0e0e0;
+  margin-bottom: 10px;
+  height: 150px;
+  width: 700;
+}
+
+.publication:nth-of-type(odd) {
+  background: #ccc;
+}
+.publication-head h4 {
+  color: #141414;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.publication-head h3 {
+  color: $orange;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.publication-head {
+  padding-right: 20px;
+  text-align: center;
+  transition: all 0.15s ease;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 20px;
+  min-width: 200px;
+}
+// .publication-body h3 {
+//   font-weight: lighter;
+//   color: #999999;
+//   margin-bottom: 0;
+//   margin-left: 20px;
+//   margin-right: 50px;
+// }
+
+.publication-body h3 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.publication-body {
+  padding-left: 15px;
+  flex: 1 1 auto;
+}
+
+
+/* Hover effects */
+.publication:hover {
+  background: #ECECEC;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.publication-reference a {
+  font-weight: bold;
+  font-size: 12px;
+  padding: 10px;
+  text-decoration: none;
+  &:hover {
+    color: black;
+  }
+}
+
+.pagination {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: $orange;
+  letter-spacing: 3px;
+}

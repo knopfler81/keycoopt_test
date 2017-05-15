@@ -1,7 +1,16 @@
-.btn-large {
+.btn {
+  color: white;
+}
+
+.btn-lg {
   padding: 20px 18px;
   border-radius: 28px;
   line-height: 1.333333;
   font-size: 14px;
   font-weight: 700;
+}
+
+.btn-md {
+  border-radius: 8px;
+  line-height: 1.333333;
 }

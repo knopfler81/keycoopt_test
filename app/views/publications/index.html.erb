@@ -1,33 +1,33 @@
 <div class="container">
+    <div class="row padded">
+      <h1 class="publications-title">Annonces publiées</h1>
+    </div>
   <div class="row">
-    <h1>Publications</h1>
+    <% @publications.each do |publication| %>
+      <div class="col-xs-12 col-md-10 col-md-offset-1 publication">
 
-<table class="table table-striped">
+        <div class="publication-head">
+          <h3><%=truncate(publication.customer.capitalize, length: 15) %></h3>
+          <h4><%= publication.created_at.strftime("%d/%m/%Y")%></h4>
+        </div>
 
-<tr>
-  <th>Client</th>
-  <th>Annonce</th>
-  <th>Date de publication</th>
-  <th>Facture</th>
-</tr>
+        <div class="publication-body">
+          <h3><%= publication.title.capitalize %></h3>
+        </div>
 
-  <% @publications.each do |publication| %>
-<tr>
-    <td><%= publication.customer %></td>
-    <td><%= publication.title %></td>
-    <td><%= publication.created_at.strftime("%d/%m/%Y")%></td>
-    <% if publication.bill.present?%>
-      <td><%= link_to "#{publication.bill.reference} (télécharger)", bill_path(publication.bill) %></td>
-    <% else %>
-      <td> <%= link_to "Générer", publication_bills_path(publication), method: :post %></td>
+        <div class="publication-reference">
+          <% if publication.bill.present?%>
+            <%= link_to "#{publication.bill.reference} (télécharger)", bill_path(publication.bill), class:"btn btn-md btn-primary" %>
+          <% else %>
+            <%= link_to "Générer", publication_bills_path(publication), method: :post, class: "btn btn-md btn-warning" %>
+          <% end %>
+        </div>
 
+      </div>
     <% end %>
-</tr>
-  <% end %>
-
-</table>
-<%= paginate @publications %>
   </div>
+  <div class="col-xs-12 col-md-10 col-md-offset-1 pagination">
+    <%= paginate @publications %>
+  </div>
+
 </div>
-
-
