@@ -1,26 +1,41 @@
 class Bill < ApplicationRecord
   belongs_to :publication
 
-  before_save :reference_generator
+  before_save :unique_refference #:reference_generator
   before_save :add_price
 
   require "i18n"
   require 'securerandom'
 
-  def reference_generator
-    self.reference = ""
+  validates :reference, uniqueness: true
 
-    ref   = self.publication.customer
-    ref_1 = I18n.transliterate(ref)
-    ref_2 = ref_1.gsub(/\W/, '')
-    ref_3 = ref_2.first(4).upcase
-    unique_id = SecureRandom.random_number(9999)
 
-    self.reference = "#" + ref_3 + unique_id.to_s
+  def unique_refference
+    if send(:read_attribute, :reference) == self.reference
+      reference_generator
+    else
+      reference_generator
+    end
   end
 
+  def reference_generator
+    self.reference = "#" + customer_ref + generate_reference_number
+  end
+
+  def customer_ref
+    ref_1 = I18n.transliterate(self.publication.customer).gsub(/\W/, '')
+    ref_1.first(4).upcase
+    # I18n.transliterate removes all accents but keeps letters à => a
+  end
+
+  def generate_reference_number
+    rand.to_s[4..7]
+    #that generate a random number with 4 to 7 digits
+  end
+
+
   def add_price
-    self.amount = 1234.56
+    self.amount = 154.35
   end
 
 end
