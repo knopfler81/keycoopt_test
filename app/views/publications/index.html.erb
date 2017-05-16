@@ -17,13 +17,10 @@
 
         <div class="publication-reference">
           <% if publication.bill.present?%>
-            <p><%= "#{publication.bill.reference}"%></p>
+
             <%= link_to  bill_path(publication.bill), class:"btn btn-md btn-primary" do %>
-              <i class="fa fa-eye"></i>
+              <%= "#{publication.bill.reference}"%> <i class="fa fa-download"></i>
             <% end %>
-            <%= link_to "#", class: "btn btn-md btn-warning" do %>
-              <i class="fa fa-download"></i>
-           <% end %>
           <% else %>
             <%= link_to "Générer", publication_bills_path(publication), method: :post, class: "btn btn-md btn-warning" %>
           <% end %>

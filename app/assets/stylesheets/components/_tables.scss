@@ -1,12 +1,14 @@
 .table-body{
+  margin-top: 20px;
   padding: 20px;
-  border: 1px dashed gray;
+  border: 2px solid $blue;
   min-height: 150px;
   margin-bottom: 20px;
 }
 
 
 .table-footer{
+  margin-top: 20px;
   padding: 10px;
 }
 
@@ -14,4 +16,12 @@
 .publication-ref {
   color: $orange
 
+}
+
+
+
+.table-total {
+  border: 3px solid $blue;
+  padding-left: 20px;
+  padding-top: 10px;
 }
