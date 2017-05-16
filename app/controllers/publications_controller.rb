@@ -1,7 +1,6 @@
 class PublicationsController < ApplicationController
   protect_from_forgery with: :null_session, only: :create
 
-
   def show
     @publication = Publication.find(params[:id])
   end
@@ -10,7 +9,6 @@ class PublicationsController < ApplicationController
     @publications = Publication.all
     @publications = Publication.order('created_at DESC')
     @publications = @publications.page params[:page]
-    @bill ||= Bill.where(params[:reference])
   end
 
   def create
