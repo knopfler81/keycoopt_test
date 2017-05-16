@@ -8,7 +8,7 @@ class Publication < ApplicationRecord
 
   paginates_per 5
 
- private
+  private
 
   def alert
     SendEmailToServiceJob.perform_later(id)
