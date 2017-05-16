@@ -30,20 +30,6 @@ describe Bill  do
 
   end
 
-
-  # describe "#generate_reference_number" do
-
-  #    it "create a unique reference " do
-  #     publication= create(:publication, customer: "L'équpe")
-  #     bill= create(:bill, publication: publication)
-
-  #     bill.save
-
-  #     expect(bill.generate_reference_number).to eq(3455)
-  #    end
-
-  #  end
-
 end
 
 
