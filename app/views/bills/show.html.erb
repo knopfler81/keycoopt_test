@@ -19,11 +19,19 @@
       <div class="col-xs-12 col-sm-6 table-body">
         <div class="col-xs-6">
           <p><strong>Date de la facture:</strong></p>
-          <p><strong>Montant:</strong> </p>
+
         </div>
         <div class="col-xs-6">
           <p><%= @bill.created_at.strftime("%d/%m/%Y") %></p>
-          <p><%= @bill.amount%> €</p>
+
+        </div>
+      </div>
+      <div class="col-xs-offset-6 ">
+        <div class="col-xs-6 table-total ">
+          <p><strong>Montant:</strong> </p>
+        </div>
+        <div class="col-xs-6 table-total">
+           <p><%= @bill.amount%> €</p>
         </div>
       </div>
       <div class="col-xs-12">
