@@ -17,7 +17,13 @@
 
         <div class="publication-reference">
           <% if publication.bill.present?%>
-            <%= link_to "#{publication.bill.reference} (télécharger)", bill_path(publication.bill), class:"btn btn-md btn-primary" %>
+            <p><%= "#{publication.bill.reference}"%></p>
+            <%= link_to  bill_path(publication.bill), class:"btn btn-md btn-primary" do %>
+              <i class="fa fa-eye"></i>
+            <% end %>
+            <%= link_to bill_path(@bill, format: "pdf"), class: "btn btn-md btn-warning" do %>
+              <i class="fa fa-download"></i>
+            <% end %>
           <% else %>
             <%= link_to "Générer", publication_bills_path(publication), method: :post, class: "btn btn-md btn-warning" %>
           <% end %>
