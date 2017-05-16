@@ -10,6 +10,7 @@ class PublicationsController < ApplicationController
     @publications = Publication.all
     @publications = Publication.order('created_at DESC')
     @publications = @publications.page params[:page]
+    @bill ||= Bill.where(params[:reference])
   end
 
   def create

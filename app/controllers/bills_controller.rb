@@ -1,6 +1,5 @@
 class BillsController < ApplicationController
 
-
   def show
     @bill = Bill.find(params[:id])
     respond_to  do |format|
