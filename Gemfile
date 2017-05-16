@@ -35,3 +35,16 @@ group :development, :test do
 end
 
 
+group :test do
+  gem 'capybara-webkit'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'simplecov', require: false
+  gem 'webmock'
+end
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
