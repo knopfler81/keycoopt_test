@@ -10,6 +10,10 @@ class Bill < ApplicationRecord
   validates :reference, uniqueness: true
 
 
+  def add_price
+    self.amount = 154.35
+  end
+
   def unique_refference
     if send(:read_attribute, :reference) == self.reference
       reference_generator
@@ -31,11 +35,6 @@ class Bill < ApplicationRecord
   def generate_reference_number
     rand.to_s[4..7]
     #that generate a random number with 4 to 7 digits
-  end
-
-
-  def add_price
-    self.amount = 154.35
   end
 
 end
