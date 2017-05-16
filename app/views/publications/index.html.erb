@@ -2,6 +2,7 @@
     <div class="row padded">
       <h1 class="publications-title">Annonces publiées</h1>
     </div>
+    <h1>TEST</h1>
   <div class="row">
     <% @publications.each do |publication| %>
       <div class="col-xs-12 col-md-10 col-md-offset-1 publication">
@@ -22,7 +23,7 @@
               <%= "#{publication.bill.reference}"%> <i class="fa fa-download"></i>
             <% end %>
           <% else %>
-            <%= link_to "Générer", publication_bills_path(publication), method: :post, class: "btn btn-md btn-warning" %>
+            <%= link_to "Générer", publication_bills_path(publication), method: :post, class: "btn btn-md btn-warning btn-generate" %>
           <% end %>
         </div>
 

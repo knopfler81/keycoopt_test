@@ -43,6 +43,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'webmock'
+  gem 'faker'
 end
 
 source 'https://rails-assets.org' do
