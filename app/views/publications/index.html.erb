@@ -22,7 +22,7 @@
               <%= "#{publication.bill.reference}"%> <i class="fa fa-download"></i>
             <% end %>
           <% else %>
-            <%= link_to "Générer", publication_bills_path(publication), method: :post, class: "btn btn-md btn-warning" %>
+            <%= link_to "Générer", publication_bills_path(publication), method: :post, class: "btn btn-md btn-warning btn-generate" %>
           <% end %>
         </div>
 
