@@ -18,7 +18,7 @@ describe Bill  do
 
   describe "#customer_ref" do
 
-    it "takes the 4 first letters of the customer and capitalize them" do
+    it "takes the 4 first letters of the customer's name and capitalize them" do
 
       publication= create(:publication, customer: "L'équipe")
       bill= create(:bill, publication: publication)

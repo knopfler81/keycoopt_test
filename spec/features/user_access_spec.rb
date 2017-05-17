@@ -7,7 +7,7 @@ feature "A non authenticated visitor can access the landing page" do
     expect(page).to have_content("CONSULTER LES PUBLICATIONS")
   end
 
-  scenario "wants to access to publications" do
+  scenario "can't to access to publications" do
     visit publications_path
     expect(page).to have_content("Access denied")
   end
