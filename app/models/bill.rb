@@ -22,15 +22,16 @@ class Bill < ApplicationRecord
     end
   end
 
-  def reference_generator
-    self.reference = "#" + customer_ref + generate_reference_number
-  end
-
   def customer_ref
     ref_1 = I18n.transliterate(self.publication.customer).gsub(/\W/, '')
     ref_1.first(4).upcase
     # I18n.transliterate removes all accents but keeps letters à => a
   end
+
+  def reference_generator
+    self.reference = "#" + customer_ref + generate_reference_number
+  end
+
 
   def generate_reference_number
     rand.to_s[4..7]

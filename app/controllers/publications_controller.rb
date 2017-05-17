@@ -2,10 +2,6 @@ class PublicationsController < ApplicationController
   protect_from_forgery with: :null_session, only: :create
   skip_before_action :http_basic_authenticate, only: :create
 
-  def show
-    @publication = Publication.find(params[:id])
-  end
-
   def index
     @publications = Publication.all
     @publications = Publication.order('created_at DESC')

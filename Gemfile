@@ -40,6 +40,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'webmock'
