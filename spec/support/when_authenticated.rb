@@ -1,4 +1,5 @@
 RSpec.shared_context 'When authenticated' do
+
   background do
     authenticate
   end
