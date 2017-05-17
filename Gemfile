@@ -42,6 +42,7 @@ group :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
+  gem 'shoulda-callback-matchers', '~> 1.1.1'
   gem 'simplecov', require: false
   gem 'webmock'
   gem 'faker'

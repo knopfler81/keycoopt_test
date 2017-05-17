@@ -3,6 +3,8 @@ require 'rails_helper'
 describe Bill  do
   it { should belong_to(:publication)}
 
+  it { is_expected.to callback(:add_price).before(:save) }
+  it { is_expected.to callback(:unique_refference).before(:save) }
 
   describe "#add_price" do
 
@@ -27,7 +29,6 @@ describe Bill  do
 
       expect(bill.customer_ref).to eq("LEQU")
     end
-
   end
 
 end

@@ -9,7 +9,6 @@ class Bill < ApplicationRecord
 
   validates :reference, uniqueness: true
 
-
   def add_price
     self.amount = 154.35
   end
