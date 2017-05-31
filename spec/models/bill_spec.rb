@@ -4,7 +4,7 @@ describe Bill  do
   it { should belong_to(:publication)}
 
   it { is_expected.to callback(:add_price).before(:save) }
-  it { is_expected.to callback(:unique_refference).before(:save) }
+  it { is_expected.to callback(:check_if_reference_exists).before(:save) }
 
   describe "#add_price" do
 
