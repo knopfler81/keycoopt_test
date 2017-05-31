@@ -1,7 +1,7 @@
 class Bill < ApplicationRecord
   belongs_to :publication
 
-  before_save :unique_refference #:reference_generator
+  before_save :check_if_reference_exists
   before_save :add_price
 
   require "i18n"
@@ -13,13 +13,17 @@ class Bill < ApplicationRecord
     self.amount = 154.35
   end
 
-  def unique_refference
-    if send(:read_attribute, :reference) == self.reference
+  def check_if_reference_exists
+    bill = Bill.where(reference: self.reference).first
+    if bill != nil
       reference_generator
+      #puts "It doesn't exist"
     else
       reference_generator
+      #puts "It exists"
     end
   end
+
 
   def reference_generator
     self.reference = "#" + customer_ref + generate_reference_number
