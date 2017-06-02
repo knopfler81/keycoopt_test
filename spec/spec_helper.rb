@@ -3,13 +3,19 @@ require 'webmock/rspec'
 
 # http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  config.mock_with :mocha
   config.expect_with :rspec do |expectations|
     expectations.syntax = :expect
   end
 
+
   config.mock_with :rspec do |mocks|
-    mocks.syntax = :expect
+    #mocks.syntax = :expect
     mocks.verify_partial_doubles = true
+
+
+    mocks.syntax = [:should, :receive, :expect]
+
   end
 
   config.example_status_persistence_file_path = 'tmp/rspec_examples.txt'
@@ -18,3 +24,6 @@ end
 
 WebMock.disable_net_connect!(allow_localhost: true)
 
+
+
+RSpec.configure do |config|

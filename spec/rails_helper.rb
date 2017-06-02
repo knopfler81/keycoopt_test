@@ -1,4 +1,5 @@
 require 'simplecov'
+require 'mocha/api'
 SimpleCov.start 'rails'
 
 ENV['RAILS_ENV'] = 'test'

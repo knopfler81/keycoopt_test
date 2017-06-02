@@ -8,8 +8,7 @@ FactoryGirl.define do
 
   factory :bill do
     publication
-    amount 250.90
-    reference "#TEST9045"
+    amount 154.35
   end
 
 end
